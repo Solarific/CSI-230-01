@@ -1,0 +1,4 @@
+ip=$(myip.bash)
+
+myip1=$()
+
