@@ -1,5 +1,4 @@
-ip addr | grep inet | grep 192 | cut -c 10- | cut -c -17
-
+ip addr | grep "inet" | grep -v "inet6" | grep -v "host" | grep / | cut -d ' ' -f 6
 
 
 
