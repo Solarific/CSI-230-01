@@ -15,4 +15,4 @@ ip2binary=$(echo "obase=2;$myip2" | bc)
 ip3binary=$(echo "obase=2;$myip3" | bc)
 ip4binary=$(echo "obase=2;$myip4" | bc)
 
-echo "${ip1binary}""${ip2binary}""000000""${ip3binary}""${ip4binary}" 
+echo $(printf -- 0%.s $(seq -s ' ' $((8-${#ip1binary}))))$ip1binary $(printf -- 0%.s $(seq -s ' ' $((8-${#ip2binary}))))$ip2binary $(printf -- 0%.s $(seq -s ' ' $((8-${#ipbinary}))))$ip3binary  $(printf -- 0%.s $(seq -s ' ' $((8-${#ip4binary}))))$ip4binary
