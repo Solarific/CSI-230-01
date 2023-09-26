@@ -21,7 +21,7 @@ then
      do
        binaryip4=$(echo "obase=2;$i" | bc)
 	((x++))
-       echo $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip1}))))$binaryip1 $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip2}))))$binaryip2 $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip3}))))$binaryip3  $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip4}))))$binaryip4 >> BinaryIP.txt
+       echo $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip1}))))$binaryip1 $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip2}))))$binaryip2 $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip3}))))$binaryip3  $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip4}))))$binaryip4 > BinaryIP.txt
       
 done
 done
@@ -35,7 +35,11 @@ if [[ "${prefix}" -eq 24 ]]
   do
        binaryip4=$(echo "obase=2;$i" | bc)
 
+if [[ 8-"${#binaryip4}" -eq 0 ]]
+   then
+        echo  $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip1}))))$binaryip1 $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip2}))))$binaryip2 $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip3}))))$binaryip3 $(printf "$binaryip4") >> BinaryIP.txt 
+else
 	echo  $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip1}))))$binaryip1 $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip2}))))$binaryip2 $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip3}))))$binaryip3 $(printf -- 0%.s $(seq -s ' ' $((8-${#binaryip4}))))$binaryip4 >> BinaryIP.txt 
-      
+  fi
   done
 fi
