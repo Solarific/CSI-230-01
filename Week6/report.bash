@@ -22,7 +22,6 @@ echo "
 
 while File= read -r line
 do
-
     ip=$(echo "$line" | cut -d ' ' -f 1)
     date=$(echo "$line" |  cut -d '[' -f2 | cut -d '-' -f1)
     pagereq=$(echo "$line" | cut -d '"' -f2 | cut -d ' ' -f 2)
