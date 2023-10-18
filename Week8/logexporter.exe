@@ -1,0 +1,5 @@
+﻿clear
+
+$msg = "Hello, What files would you like to explore and export?" 
+
+write-Host $msg
